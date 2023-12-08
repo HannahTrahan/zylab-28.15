@@ -3,9 +3,9 @@
 PlaylistNode::PlaylistNode(string ID, string name, string artist, int length){
 	this->uniqueID = ID;
 	this->songName = name;
-	this->songArtist = artist;
-	this->songlength = length;
-	this->nextNodeRef = NULL;
+	this->artistName = artist;
+	this->songLength = length;
+	this->nextNodePtr = NULL;
 }
 
 string PlaylistNode::GetID(){
@@ -17,7 +17,7 @@ string PlaylistNode::GetSongName(){
 }
 
 string PlaylistNode::GetArtistName(){
-   return this->songArtist;
+   return this->artistName;
 }
 
 int PlaylistNode::GetSongLength(){
@@ -30,7 +30,7 @@ PlaylistNode* PlaylistNode::GetNext(){
 
 void PlaylistNode::InsertAfter(PlaylistNode* nodePtr) {
 	PlaylistNode* tmpNext;
-	tmpNext = this->nextNodeRef;
+	tmpNext = this->nextNodePtr;
 	this->nextNodePtr = nodePtr;
 	nodePtr->nextNodePtr = tmpNext;
 }
